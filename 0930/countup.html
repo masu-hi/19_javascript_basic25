@@ -5,6 +5,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>カウントアップ装置</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #counter {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #plus {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition:
+                background-color 0.2s ease,
+                transform 0.1s ease;
+        }
+
+        #plus:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,12 +54,26 @@
         // CSSセレクターは、CSSで使うセレクターのこと
         console.log(counter);//pが入っている
         // p要素のテキストをcount(0)にする
+        // プロパティ
         counter.textContent = count;
 
         // 素材は全部取り込む
         // constに変更する
         const plusBtn = document.querySelector("#plus");
         console.log(plusBtn);
+
+
+        // クッリクイベントを登録
+        plusBtn.addEventListener('click', function () {
+            console.log("クリックしたぞ！");
+            // countに+1をする
+            // count = count + 1;
+            // インクリメント
+            count++;
+            console.log(count);
+            counter.textContent = count;
+        });
+
 
 
         let a; //変数の宣言

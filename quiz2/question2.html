@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数・演算子・要素の取得・イベント処理振り返り</title>
+</head>
+
+<body>
+    <h1>変数・演算子・要素の取得・イベント処理振り返り</h1>
+    <p id="result"></p>
+    <button id="hello">あいさつ</button>
+    <p id="msg"></p>
+    <button id="hidden">削除する</button>
+
+    <script>
+        //ここに記述していきます。
+        let number = 10;
+        const result = document.querySelector('#result').textContent;
+        console.log(result);
+        number = number - 1;
+        document.querySelector('#result').textContent = number;
+
+        const helloBtn = document.querySelector('#hello')
+        helloBtn.addEventListener('click', function () {
+            let massage = document.querySelector('#msg');
+            massage.textContent = 'こんにちは';
+        })
+    </script>
+</body>
+
+</html>
