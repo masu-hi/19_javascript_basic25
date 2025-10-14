@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>配列・条件分岐（if文）の振り返り</title>
+</head>
+
+<body>
+    <button id="btn">クリック</button>
+    <script>
+        const hobbies = ['映画鑑賞', '読書', '旅行'];
+        let count = 0;
+        // 使われる場合は、const大体は、const(定数)
+        const colors = ['赤', '青', '黄'];
+        // インデックスが012なので、
+        const blue = colors[1]
+        if (blue === '青') {       //if()の中は〜が()のときという意味
+            console.log('正解です')
+        }
+        else {
+            console.log('不正解です')
+        }
+        // まずjavascriptに読み込む、変数に入れる
+        const btnBtn = document.querySelector('#btn');
+        btnBtn.addEventListener('click', function () {
+            alert('押されました');
+        })
+        // lengthは配列の要素数
+        const num = hobbies.length;
+        if (num === 3) {
+            console.log('趣味が3つあります');
+        }
+        else {
+            console.log('趣味が3つではありません');
+        }
+    </script>
+</body>
+
+</html>

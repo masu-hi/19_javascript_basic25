@@ -84,7 +84,34 @@
     let index = 0;
     //indexは0,　配列questionsの添字に当てはめる
     //問題表示部分に配列から1問目が表示される
+    let score = 0; //値を再代入する可能性が高いのでlet
     questionElem.textContent = questions[index];
+
+    //回答するボタン
+    respondBtn.addEventListener('click', function () {
+        const answer = answerInput.value;
+        //formの値を取りたいときは、.value
+
+        //if文で、回答と解答(配列ansewrsにある)を比較します
+        //inputから数値を取得すると、すべて文字列になリマス
+        if (answer === ansewrs[index]) {
+            resultMessage.textContent = '正解です';
+        }
+        else {
+            resultMessage.textContent = '不正解です';
+        }
+        index++; //0→1
+        questionElem.textContent = questions[index];
+        answerInput.value = ''; //初期化
+
+        if (index === questions.length) {
+            questionElem.textContent = '3問中' + score + '問正解です。';
+            console.log(score);
+        }
+
+        console.log(answer);
+    })
+
 </script>
 
 <script>
@@ -105,25 +132,31 @@
     const count = interests.length;
     console.log(count);
 
-    //回答するボタン
-    respondBtn.addEventListener('click', function () {
-        const answer = answerInput.value;
-        //formの値を取りたいときは、.value
+</script>
 
-        //if文で、回答と解答(配列ansewrsにある)を比較します
-        //inputから数値を取得すると、すべて文字列になリマス
-        if (answer === ansewrs[index]) {
-            resultMessage.textContent = '正解です';
-        }
-        else {
-            resultMessage.textContent = '不正解です';
-        }
-        index++; //0→1
-        questionElem.textContent = questions[index];
-        answerInput.value = ''; //初期化
+<script>
+    // 文字列の連結練習
+    // 文字列と数値型の連結
+    console.log('円周率は、' + 3.14 + 'です。');
+    // 円周率は、3.14です。
+    // 文字列と数値の計算
+    console.log('計算結果：' + 1234 + 5678);
+    // 計算結果：12345678 文字列が入った時点(最初）文字列結合になります。
 
-        console.log(answer);
-    })
+    // 数値の計算と文字列
+    console.log(123 + 456 + 'です。');
+    // 579です。※文字列が入った時点（最後）で文字列結合になります。
+
+    // 文字列と（計算）だったら
+    console.log('計算結果：' + (123 + 456));
+    // 計算結果：579
+
+    // 文字列 - 数値だったら
+    console.log('2' - 1);
+    console.log('2' * 1);
+    console.log('4' / 2);
+
+    // 1
 </script>
 
 <script>
