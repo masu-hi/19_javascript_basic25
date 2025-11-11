@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #ddd;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        /* 必要であれば、追記します。 */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="buttons">
+            <button>Red</button>
+            <button>Green</button>
+            <button>Blue</button>
+        </div>
+    </div>
+</body>
+<script>
+    // JavaScriptはここに書きます。
+    const colorbox = document.querySelector('.box'); //要素の取得
+    const colorbtn = document.querySelectorAll('button'); //要素の複数取得
+    console.log(colorbtn);
+
+    for (let i = 0; i < colorbtn.length; i++) { //for文で取得したものを一斉に動かす
+
+        colorbtn[i].addEventListener('click', function () { //クリックして動かす
+
+            if (colorbtn[i] === colorbtn[0]) { //もしcolorbtnのiが0のときcolorboxが赤色になる
+                colorbox.classList.add('red');
+                colorbox.classList.remove('green');
+                colorbox.classList.remove('blue');
+            } else if (colorbtn[i] === colorbtn[1]) { //もしcolorbtnのiが1のときcolorboxが緑色になる
+                colorbox.classList.remove('red');
+                colorbox.classList.remove('blue');
+                colorbox.classList.add('green');
+            } else { //それ以外のとき
+                colorbox.classList.remove('green');
+                colorbox.classList.remove('red');
+                colorbox.classList.add('blue');
+            }
+        })
+    }
+
+</script>
+
+</html>
