@@ -15,10 +15,19 @@ console.log(fullHeight); //2400
 const viewHeight = document.documentElement.clientHeight;
 const scrollable = fullHeight - viewHeight;
 
+
+// 10.関数の定義 仮引数(num)
+function colorChange(num) {
+    //関数処理を書く
+    bodyElm.style.backgroundColor = 'rgb(' + settingColors[num].r + ',' + settingColors[num].g + ',' + settingColors[num].b + ')';
+}
+
+
 // 2.オブジェクトの色をbodyの背景色にする
 const bodyElm = document.body;
 console.log(bodyElm);
 bodyElm.style.backgroundColor = 'rgb(' + settingColors[0].r + ',' + settingColors[0].g + ',' + settingColors[0].b + ')';
+
 
 // 4.スクロールするたびにイベント
 window.addEventListener('scroll', function () {
@@ -27,25 +36,38 @@ window.addEventListener('scroll', function () {
     console.log(scrollY);
 
     // 7.スクロールを4分割
+    // 9.変数scrollableを4分割
     // 6.1 / 4進んだら色が変わるようにする
     if (scrollY < scrollable / 4) {
-        document.body.style.backgroundColor = 'rgb(' + settingColors[0].r + ',' + settingColors[0].g + ',' + settingColors[0].b + ')';
+        colorChange(0)
     }
     else if (scrollY < scrollable / 2) {
-        document.body.style.backgroundColor = 'rgb(' + settingColors[1].r + ',' + settingColors[1].g + ',' + settingColors[1].b + ')';
+        colorChange(1)
     }
     else if (scrollY < (scrollable * 3) / 4) {
-        document.body.style.backgroundColor = 'rgb(' + settingColors[2].r + ',' + settingColors[2].g + ',' + settingColors[2].b + ')';
+        colorChange(2)
     }
     else {
-        document.body.style.backgroundColor = 'rgb(' + settingColors[3].r + ',' + settingColors[3].g + ',' + settingColors[3].b + ')';
+        //関数名() = 関数の呼び出し
+        colorChange(3)
     }
-
-
 })
 
+//1200pxを超えたらボタンが出てくる
+window.addEventListener('scroll', function () {
+    const button = document.querySelector('.moveToTop');
+    if (window.scrollY >= 1200) {
+        button.style.display = 'block';
+    } else {
+        button.style.display = 'none';
+    }
+});
 
-
-// 9.変数scrollableを4分割
-// 10.関数の定義
-// 11.関数の呼び出し（実行）の実引数
+//上に戻るボタン実装
+const button = document.querySelector('.moveToTop');
+button.addEventListener('click', function () {
+    window.scrollTo({
+        top: 0,
+        behavier: 'smooth'
+    });
+});

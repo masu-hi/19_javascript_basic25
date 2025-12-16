@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const site = {
+            title: 'Portfolio',
+            author: 'Yamada',
+            themeColor: '#ff9900'
+        }
+
+
+        const getTotalPrice = function (price) {
+            const result = price * 1.1;
+            return result;
+        }
+        console.log(getTotalPrice(1000));
+
+        // function isInStock(stock) {
+        //     if (stock > 0) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+
+        const isInStock = (stock) => stock > 0;
+
+        items = ['財布', '鍵', 'スマホ'];
+
+        const product = { name: 'ノート', price: 300 };
+
+        const getSalePrice = function (price) {
+            const sale = price * 0.8;
+            return sale;
+        }
+        const sale1 = getSalePrice(product.price);
+        console.log(sale1);
+
+
+    </script>
+</body>
+
+</html>

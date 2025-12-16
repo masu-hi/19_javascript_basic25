@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const item = {
+            name: 'Pen',
+            price: 120
+        };
+
+        const productName = item.name;
+
+        const fruit = {
+            type: 'Apple',
+            color: 'red'
+        };
+
+        fruit.color = 'green';
+
+        const animals = [
+            { name: 'ポチ', age: 5 },
+            { name: 'たま」', age: 2 }
+        ];
+        const animalName = animals[1].name;
+        console.log(animalName);
+
+        function greet(name) {
+            console.log('こんにちは ' + name + ' さん');
+        }
+
+        greet('Yuta');
+
+        function isBig(num) {
+            if (num >= 100) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        console.log(isBig(150));
+
+    </script>
+</body>
+
+</html>

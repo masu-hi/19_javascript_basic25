@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>12星座占い</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Kaisei+Decol&family=Noto+Sans+JP:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="starry-background"></div>
+
+    <h1>12星座占い（12月）</h1>
+
+    <div class="zodiac-container">
+        <!-- 12星座ぶん並べる -->
+        <div class="zodiac" data-sign="aries">
+            <img src="./1x/aries.png" alt="牡羊座">
+            <p>おひつじ座</p>
+        </div>
+
+        <div class="zodiac" data-sign="taurus">
+            <img src="./1x/taurus.png" alt="牡牛座">
+            <p>おうし座</p>
+        </div>
+
+        <div class="zodiac" data-sign="gemini">
+            <img src="./1x/gemini.png" alt="双子座">
+            <p>ふたご座</p>
+        </div>
+
+        <div class="zodiac" data-sign="cancer">
+            <img src="./1x/cancer.png" alt="蟹座">
+            <p>かに座</p>
+        </div>
+
+        <div class="zodiac" data-sign="leo">
+            <img src="./1x/leo.png" alt="獅子座">
+            <p>しし座</p>
+        </div>
+
+        <div class="zodiac" data-sign="virgo">
+            <img src="./1x/virgo.png" alt="乙女座">
+            <p>おとめ座</p>
+        </div>
+
+        <div class="zodiac" data-sign="libra">
+            <img src="./1x/libra.png" alt="天秤座">
+            <p>てんびん座</p>
+        </div>
+
+        <div class="zodiac" data-sign="scorpio">
+            <img src="./1x/scorpio.png" alt="蠍座">
+            <p>さそり座</p>
+        </div>
+
+        <div class="zodiac" data-sign="sagittarius">
+            <img src="./1x/sagittarius.png" alt="射手座">
+            <p>いて座</p>
+        </div>
+
+        <div class="zodiac" data-sign="capricorn">
+            <img src="./1x/capricorn.png" alt="山羊座">
+            <p>やぎ座</p>
+        </div>
+
+        <div class="zodiac" data-sign="aquarius">
+            <img src="./1x/aquarius.png" alt="水瓶座">
+            <p>みずがめ座</p>
+        </div>
+
+        <div class="zodiac" data-sign="pisces">
+            <img src="./1x/pisces.png" alt="魚座">
+            <p>うお座</p>
+        </div>
+    </div>
+
+    <!-- 結果表示エリア -->
+    <div id="result" class="result hidden">
+        <h2 id="result-title"></h2>
+        <p id="result-fortune"></p>
+        <p><strong>ラッキーナンバー：</strong> <span id="result-number"></span></p>
+        <p><strong>ラッキーアイテム：</strong> <span id="result-item"></span></p>
+    </div>
+
+    <!-- モーダル -->
+    <div id="modal-overlay" class="modal-overlay hidden"></div>
+
+    <div id="modal" class="modal hidden">
+        <button id="modal-close" class="modal-close">&times;</button>
+        <h2 id="modal-title"></h2>
+        <p id="modal-fortune"></p>
+        <p><strong>ラッキーナンバー：</strong><span id="modal-number"></span></p>
+        <p><strong>ラッキーアイテム：</strong><span id="modal-item"></span></p>
+
+        <img id="modal-zodiac-img" class="modal-zodiac-img" src="" alt="">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

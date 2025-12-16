@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="images">
+        <img src="path/cat.png" alt="猫の画像" class="img_cat">
+        <img src="path/dog.png" alt="犬の画像" class="img_dog">
+        <img src="path/panda.png" alt="パンダの画像" class="img_panda">
+    </div>
+
+    <p><span>トライデントコンピュータ専門学校</span>は愛知県名古屋市にあり、1984年に開校。IT技術者多数育成。現在、情報処理系3学科とCG／ゲーム開発／<span>Webデザイン</span>／CADなどの学科もあり、卒業生の<span>就職実績</span>も豊富です。
+    </p>
+    <script>
+        const school = 'トライデントコンピュータ専門学校';
+        const course = 'Webデザイン学科';
+        console.log(school + course);
+
+        const catImg = document.querySelector('.img_cat');
+        console.log('猫の画像');
+
+        const goranger = ['アカレンジャー', 'アオレンジャー', 'ミドレンジャー', 'キレンジャー', 'モモレンジャー'];
+        console.log(goranger[4]);
+        for (let i = 0; i < goranger.length; i++) {
+            console.log(goranger[i]);
+        };
+
+        const spanBtn = document.querySelectorAll('span');
+        for (let i = 0; i < spanBtn.length; i++) {
+            spanBtn[i].addEventListener('click', function () {
+                spanBtn.textContent = 'トライデントコンピュータ専門学校';
+                console.log(spanBtn);
+            })
+        }
+    </script>
+</body>
+
+</html>

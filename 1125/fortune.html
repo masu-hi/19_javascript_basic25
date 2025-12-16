@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>占いの館</title>
+
+    <style>
+        body {
+            background: radial-gradient(#2b1055, #000);
+            color: #fff;
+            font-family: serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+        }
+
+        h1,
+        h2 {
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        #btn {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            border: none;
+            padding: 10px 30px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* #result {
+            opacity: 0;
+            transition: 0.5s;
+            margin-top: 20px;
+        } */
+
+        #result.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">占う</button>
+    <div id="result"></div>
+    <script>
+        // 配列リテラルを作る
+        const luckList = ["大吉", "中吉", "小吉", "凶"];
+        const colorList = ["red", "blue", "green", "yellow"];
+        const itemList = ["お守り", "ノート", "スマホ", "コーヒー"];
+        //     オブジェクトリテラルでメッセージを書く
+        //キーが文字なのにクォーテーションがない場合は、自動で文字列として扱われる
+        const messages = {
+            大吉: '今日は最高の日になりそう',
+            中吉: 'お仇や可に過ごせる1日です',
+            小吉: '小さな幸せを見つけよう',
+            凶: '焦らず落ち着いて行動しよう',
+        };
+        //     引数・戻り値のある関数式を作る
+        console.log(luckList[0]); //大吉
+        const number = Math.floor(Math.random() * luckList.length); //0~3のランダム
+        console.log(luckList[number]);
+
+        const getRandomElement = function (array) {
+            //戻って来る
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        //ランダムカラー　※引数は配列
+        //const colorList = ["red", "blue", "green", "yellow"];
+        getRandomElement(colorList);
+        const colors = getRandomElement(colorList);
+        console.log(colors);
+        //     1回分の占い結果を作る関数式getFortune
+        const getFortune = function () {
+            //getRandomElement関数を使ってランダムに選ぶ
+            const luck = getRandomElement(luckList); //運勢
+            const color = getRandomElement(colorList); //ラッキーカラー
+            const item = getRandomElement(itemList); //ラッキーアイテム
+            //オブジェクトの値を取る方法は、２通りある .ドットとブラケット表記
+            //文字列型のときは、ブラケット表記を使う
+            const message = messages[luck]; //オブジェクトからメッセージを取得
+            //戻り値がオブジェクト
+            return {
+                luck: luck,
+                color: color,
+                item: item,
+                message: message,
+            }
+        };
+        // const result = getFortune();
+        // console.log(result);
+        //     ボタンをクリックしたときのイベント（HTMLを書き換えて表示＋アニメーション）
+        const btn = document.querySelector('#btn');
+        const result = document.querySelector('#result');
+        btn.addEventListener('click', () => {
+            const resultObject = getFortune();
+            let message = resultObject.message
+            //上の => はアロー関数という
+            result.innerHTML = '<h2>${resultObject.luck}</h2>
+                < p > ラッキーカラー:${ resultObject.color }</p >
+            <p>ラッキーアイテム:${resultObject.item}</p>
+            <p>${message}</p>'; //初期化
+        })
+    </script>
+</body>
+
+</html>

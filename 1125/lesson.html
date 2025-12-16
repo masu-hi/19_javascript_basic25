@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習1125</title>
+</head>
+
+<body>
+    <div class="innerhtml"></div>
+    <script>
+
+        //テンプレートリテラルの練習
+        const name = 'Alice';
+        //文字列の連結 + を用いた方法
+        console.log('私の名前は' + name + 'です。');
+        //テンプレートリテラルを用いた方法
+        console.log('私の名前は${name}です。');
+        //改行もそのまま反映される
+        const text = '私の名前は、
+        ${ name } です。';
+        console.log(text);
+
+        //innerHTMLの練習
+        const innerhtml = document.querySelector('.innerhtml');
+        // innerhtml.textContent = '<h1>Hello</h1>';
+        innerhtml.innerHTML = '<h1>Hello</h1>';
+
+        //今までの関数の定義
+        function PI() {
+            //コンソールに表示
+            //表示の仕方も関数の中に書いている
+            console.log(3.14);
+        }
+        PI();//関数の実行 → 3.14
+        //戻り値のある関数
+
+        function PI2() {
+            //return文で戻り値を返す
+            return 3.1415926535;
+        }
+        PI2();//関数の実行 → 3.1415926535
+        //戻り値を受ける。こちらで表示する場所や方法を決められる
+        const result = PI(); //戻り値を変数に代入
+        console.log(result);
+
+        //引数を２倍にして戻す関数
+        function double(num) {
+            const result = num * 2;
+            return result;
+        }
+        const a = double(10); //引数に10を渡す
+        console.log(a); //20
+
+        const b = double(8); //引数に8を渡す
+        console.log(b); //16
+
+
+        //関数式
+        //functionには名前をつけない
+        const sayHello = function () {
+            console.log('こんにちは');
+        };
+
+        function sayHello2() {
+            console.log('こんにちは');
+        }
+
+        //じゃあ、関数の実行は？
+        sayHello(); //こんにちは 関数宣言の時と変わらない
+        sayHello2(); //こんにちは
+
+
+        //ジュースを作る関数
+        function makeJuice(fruit) {
+            console.log(fruit + 'ジュース');
+        }
+        //これは、makeJuiceという関数 = 関数名
+        //関数を呼び出すためには関数名に()をつける
+        //関数の呼び出し（実行）
+        makeJuice('りんご');
+
+        //無名関数
+        //関数式で名前をつけてあげる
+        const makeJuice2 = function (fruit) {
+            console.log(fruit + 'ジュース');
+        };
+
+        //この無名関数の名前は、makeJuice2
+        //関数名（）で実行なので、
+        makeJuice2('みかん'); //みかんジュース
+    </script>
+</body>
+
+</html>
