@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スコープ他</title>
+</head>
+
+<body>
+    <script>
+        //varは関数スコープ
+        //let,const はブロックスコープ
+        function sample() {
+            const x = 10; //関数の中で宣言された変数
+            console.log(x); // 10
+        }
+        //関数の呼び出し（関数の実行）
+        sample();
+        // console.log(x); // ReferenceError: x is not defined
+
+        //ブロックスコープ（ローカルスコープ）
+        if (true) { //真偽値orブルーン値
+            const x = 10;
+            console.log(x); // 10
+        }
+        // console.log(x); // ReferenceError: x is not defined
+
+        //グローバルスコープ
+        const z = 1;
+        //関数の定義
+        function doSomething() {
+            console.log(z); // 1
+        }
+        if (true) {
+            console.log(z); // 1
+        }
+        doSomething(); // 1
+
+
+        const a = 1; //グローバルスコープ
+        function doSomething1() {
+            const a = 2; //関数スコープ
+            console.log(a + '関数スコープ'); //関数スコープからaを参照
+            if (true) {
+                const a = 3; //ブロックスコープ
+                console.log(a + 'ブロックスコープ'); //ブロックスコープからaを参照
+            }
+            console.log(a + '関数スコープ'); //関数スコープからaを参照
+        }
+        doSomething1();
+
+        function doSomething2() {
+            const b = 1; //関数スコープ
+            // b = 2; //使うことができない。
+            //let,constで宣言した変数は再代入できない。
+        }
+        doSomething2();
+
+        //オブジェクトのメソッド
+        const person = {
+            name: 'アリス', age: 20, interest: ['読書', '料理'], greet: function () {
+                console.log('こんにちは');
+                //windowオブジェクト + 組み込み関数
+            }, //関数式 === メソッド
+        };
+        //関数の実行
+        person.greet(); // こんにちは
+        //何かの値に()がついていたら、それは関数の呼び出し（実行）
+        //関数が宣言されているか？もしくは、JavaScriptに組み込まれている関数か?
+
+        //アリス
+        console.log(person.name); // アリス  (オブジェクト名.メソッド名)
+
+        //メソッドのthis
+        const person2 = {
+            name: 'Alice',
+            greet: function () {
+                console.log('こんにちは、私は${this.name}です。');
+                //テンプレートリテラル（変数名）
+            },
+        };
+
+        person2.greet(); // こんにちは、私はAliceです。
+
+        person2.name = 'Bob';
+        person2.greet(); // こんにちは、私はBobです。
+        console.log(person2.name); // Bob
+
+        //配列のlength（要素の数）
+        const interests = ['読書', '料理', 'キャンプ'];
+        const count = interests.length;
+        console.log(count); // 3
+
+        interests.push('散歩');
+
+        //配列の最後尾から値を取り出す
+        const alphabet = ['A', 'B', 'C',];
+        const last = alphabet.pop();
+        console.log(last); // C
+        console.log(alphabet); // ['A', 'B']
+        //pop()は、配列の最後尾の要素を取り出すと、同時に配列の要素数も減る
+
+        //特定の要素が配列に含まれているか？
+        const fruits = ['りんご', 'バナナ', 'オレンジ'];
+        const check1 = fruits.includes('りんご'); // true
+        console.log(check1);
+        const check2 = fruits.includes('ぶどう'); // false
+        console.log(check2);
+
+        //配列要素の結合と文字列の分割
+        const join = interests.join('と');
+        console.log(join); // 読書と料理とキャンプと散歩
+
+        //文字列の分割（文字列から配列の生成）
+        const string = '読書＆料理＆キャンプ';
+        const split = string.split('＆');
+        console.log(split); // ['読書', '料理', 'キャンプ']
+
+
+
+    </script>
+</body>
+
+</html>
